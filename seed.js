@@ -1,22 +1,14 @@
+var db = require('./models');
+
 //hard-coded data for fav artists 
 
-//SCHEMA OUTLINE
-var favArtistsSchema = new Schema {
-	name: String, 
-	movement: String, 
-	//medium: String,
-	//artworkTitle: String,
-	//artworkYear: Number,
-	//themes: String
-
-
-}
 
 //HARD-CODED DATABASE INFO (15 total)
 
-var favArtists = {
+var artistsList = [
+{
 	name: 'Hito Steyerl',
-	movement: 'Contemporary'
+	movement: 'Contemporary',
 	medium: 'Film and Writing'
 }, 
 {
@@ -86,6 +78,19 @@ var favArtists = {
 }, 
 {
 	name: 'Louise Bourgeois',
-	movement: 'Surrealism'
+	movement: 'Surrealism',
 	medium: 'Sculpture and Installation Art'
 }
+];
+
+
+db.Artist.remove({}, function(err, artists){
+	db.Artist.create(artistsList, function(err, artists){
+		if (err){
+			return console.log('ERROROROROROROR', err);
+		}
+		console.log('all artists', artists);
+		console.log('created ', artists.length, 'artists');
+		process.exit();
+	});
+});

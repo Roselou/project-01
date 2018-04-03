@@ -10,7 +10,9 @@ app.get('/', function(req, res){
 });
 
 
-
+app.get('/api/artists', function(req, res){
+	res.send('made it to artists endpoint')
+})
 
 
 
