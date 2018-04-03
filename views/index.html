@@ -10,25 +10,27 @@
 	  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   	<!-- custom styles -->
- 	 <link rel="stylesheet" type="text/css" href="../public/styles/styles.css">
+ 	 <link rel="stylesheet" type="text/css" href="../styles/styles.css">
 
 
 	<title>Dream Exhibition</title>
 </head>
 <body>
 
+  <div class ="header">
 	<h1>Create Your Dream Exhibition</h1>
 	<!-- use background image in css -->
+  </div>
 
 	<div class="thumbnails">
-		<img src="../public/assets/img/charlotte-moorman.png">
-		<img src="../public/assets/img/eva-hesse.png">
-		<img src="../public/assets/img/hito_steyerl.png">
-		<img src="../public/assets/img/kara_walker.png">
-		<img src="../public/assets/img/louise_bourgeois.png">
-		<img src="../public/assets/img/lygia_clarke.png">
-		<img src="../public/assets/img/maya-deren.png">
-		<img src="../public/assets/img/Miere-Laderman-ukeles.png">
+		<img src="../assets/charlotte-moorman.png">
+		<img src="../assets/eva-hesse.png">
+		<img src="../assets/hito_steyerl.png">
+		<img src="../assets/kara_walker.png">
+		<img src="../assets/louise_bourgeois.png">
+		<img src="../assets/lygia_clarke.png">
+		<img src="../assets/maya-deren.png">
+		<img src="../assets/Miere-Laderman-ukeles.png">
 	</div>
 
 	<div class="container">
@@ -37,7 +39,7 @@
    	 <div class="form-group">
    	 	 <div class="form-group">
    			 <label for="exhibition-title">Exhibition Title</label>
-   			 <input type="text" class="form-control" id="exhibition-title" aria-describedby="emailHelp" placeholder="ex: Art in the Age of the Internet">
+   			 <input type="text" class="form-control" id="exhibition-title"  placeholder="ex: Art in the Age of the Internet">
  		 </div>
      	 <label for="artist">Select Your 3 Favorite Artist's from the List:</	label>
       	<select class="form-control" id="artist">
@@ -60,14 +62,16 @@
      	 </select>
     	 <label for="location">Select your dream location:</label>
         <select class="form-control" id="location">
-     	   <option>Pompedu</option>
+     	   <option>Centre Pompidou</option>
      	   <option>SF Museum of Modern Art</option>
-     	   <option>The Louvre</option>
-     	   <option></option>
+     	   <option>Le Louvre</option>
+         <option>The Whitney Museum</option>
+     	   <option>The Hammer</option>
+         <option>The Broade</option>
      	 </select>
      	  <div class="form-group">
    			 <label for="exhibition-statement">Exhibition Statement</label>
-   			 <input type="text" class="form-control" id="exhibition-statement" aria-describedby="emailHelp" placeholder="Describe Exhibtion-Statement">
+   			 <input type="text" class="form-control" id="exhibition-statement"  placeholder="Describe Exhibtion-Statement">
  		 </div>
       
    	 </div>
@@ -93,6 +97,6 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
 
   <!-- custom script -->
-  <script type="text/javascript" src="../public/scripts/app.js"></script>
+  <script type="text/javascript" src="../scripts/app.js"></script>
 
 </html>
