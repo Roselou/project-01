@@ -1,1 +1,30 @@
-styles.css
+/*WebPage styling*/
+body {
+	background: #4f4f4f;
+	word-spacing: 1px;
+	letter-spacing: 0.5px;
+	line-height: 1.618em;
+}
+
+h1 {
+	background-image: url("");
+	background-size: cover;
+	color: #FFFFFF;
+}
+
+
+/*Images*/
+
+.thumbnails {
+	display: flex;
+	flex-direction: row;
+
+}
+
+
+
+
+/*FORM*/
+.container {
+	background: #C1C1C1;
+}
