@@ -9,7 +9,7 @@ var Schema = mongoose.Schema;
 var ExhibitionSchema = new Schema ({
 	title: String, 
 	artists: [Artist.schema],
-	location: [Location.schema], 
+	location: Location.schema, 
 	statement: String
 });
 
@@ -17,3 +17,4 @@ var Exhibition = mongoose.model('Exhibition', ExhibitionSchema);
 
 module.exports = Exhibition;
 module.exports.Artist = require('./artist');
+module.exports.Location = require('./location');
