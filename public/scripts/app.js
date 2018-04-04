@@ -34,7 +34,7 @@ $.ajax ({
 });
 
 function handleSuccess(artists){
-	console.log(artists)
+	//console.log(artists)
 	renderExhibition(artists);
 
 }
@@ -46,14 +46,27 @@ function handleError(exhibitions){
 function renderExhibition(exhibition){
 	console.log('rendering exhibition', exhibition);
 	console.log(exhibition.artists);
-	debugger
-	var arrayOfArtists = exhibition.artists.map(function(eachArtist){
-		return `${eachArtist.name} - ${eachArtist.medium}`;
-	});
-	var formattedArtists = arrayOfArtists.join(', ')
+	//debugger
+	// var arrayOfArtists = exhibition.artists.map(function(eachArtist){
+	// 	return `${eachArtist.name} - ${eachArtist.medium}`;
+	// });
+	//var formattedArtists = arrayOfArtists.join(', ')
 	// var htmlTo
+	var artists = exhibition
+	artists.forEach(function(artist){
+		var namesAppendForm1 = (
+				`
+				
+       	 		<option> ${artist.name} </option>
+       			
+       			`
+       			);
+		$('#artist1').append(namesAppendForm1);
 
+	});
 }
+
+
 
 
 
