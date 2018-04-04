@@ -56,12 +56,13 @@ function renderExhibition(exhibition){
 	artists.forEach(function(artist){
 		var namesAppendForm1 = (
 				`
-				
        	 		<option> ${artist.name} </option>
-       			
        			`
        			);
 		$('#artist1').append(namesAppendForm1);
+		$('#artist2').append(namesAppendForm1);
+		$('#artist3').append(namesAppendForm1);
+
 
 	});
 }
