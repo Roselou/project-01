@@ -11,7 +11,6 @@ var ExhibitionSchema = new Schema ({
 	artists: [Artist.schema],
 	location: [Location.schema], 
 	statement: String
-
 });
 
 var Exhibition = mongoose.model('Exhibition', ExhibitionSchema);

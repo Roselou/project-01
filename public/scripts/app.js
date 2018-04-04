@@ -26,7 +26,19 @@ $.ajax ({
 
 
 
-
+$('#create-btn').on('click', function(e){
+	e.preventDefault();
+	$.ajax({
+		method: 'POST',
+		url: 'api/exhibitions', 
+		data: $(this).serialize(),
+		success: function(createdExhibition){
+			renderExhibition(createdExhibition);
+		},
+		error: handlePostError
+	});
+	$(this).trigger('reset');
+});
 
 
 
@@ -35,23 +47,27 @@ $.ajax ({
 
 function handleSuccess(artists){
 	//console.log(artists)
-	renderExhibition(artists);
+	artistsInForm(artists);
 
 }
 	
 function handleError(exhibitions){
-
+	console.log('there has been an errerererere:', err);
 }
 
-function renderExhibition(exhibition){
-	console.log('rendering exhibition', exhibition);
-	console.log(exhibition.artists);
+function handlePostError(errs){
+	console.log("there has been an errerrrererererererere:", err);
+}
+
+function artistsInForm(exhibition){
+	console.log('rendering artists', exhibition);
 	//debugger
 	// var arrayOfArtists = exhibition.artists.map(function(eachArtist){
 	// 	return `${eachArtist.name} - ${eachArtist.medium}`;
 	// });
 	//var formattedArtists = arrayOfArtists.join(', ')
 	// var htmlTo
+
 	var artists = exhibition
 	artists.forEach(function(artist){
 		var namesAppendForm1 = (
@@ -66,6 +82,23 @@ function renderExhibition(exhibition){
 
 	});
 }
+
+function renderExhibition(exhibition) {
+  console.log(exhibition.title)
+  var exhibition = exhibition.map(function(exhibitionArr){
+
+  var title = exhibition.title
+  var artist = exhibition.artists
+  var location = exhibition.location
+  var statement = exhibition.statement
+
+  $('.sample-exhibitions').append(sampleExhibitions)
+
+  
+});
+}
+
+
 
 
 
