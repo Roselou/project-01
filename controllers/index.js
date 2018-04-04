@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:3000/projet-01');
 
 var api = require('./apiController')
-var artists = require('./artistsController')
+var exhibitions = require('./exhibitionsController')
 
 module.exports = {
 	api: api,
-	artists: artists
+	exhibitions: exhibitions
 }
