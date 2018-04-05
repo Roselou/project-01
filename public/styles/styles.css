@@ -4,12 +4,21 @@ body {
 	word-spacing: 1px;
 	letter-spacing: 0.5px;
 	line-height: 1.618em;
+	width: 1024px;
+	margin: auto;
+}
+/*Heading*/
+
+.header {
+	background-image: url('../assets/alicja-2.jpeg');
+	color: #FFFFFF;
+	height: 13em;
+	border-bottom: 0;
 }
 
 h1 {
-	background-image: url("");
-	background-size: cover;
-	color: #FFFFFF;
+	padding: 2em;
+	background-color: rgba(193, 193, 193, .6);
 }
 
 
@@ -18,13 +27,30 @@ h1 {
 .thumbnails {
 	display: flex;
 	flex-direction: row;
+	align-content: stretch;
+	border-bottom: .75em #4f4f4f solid;
 
 }
-
 
 
 
 /*FORM*/
 .container {
 	background: #C1C1C1;
+	border-radius: 7px;
+}
+
+.form-control {
+	display: inline-block;
+	padding: 1em;
+	margin: .5em;
+}
+
+#create-btn {
+    margin-left: 33%;
+    margin-right: auto;
+    margin-bottom: 3em;
+    width: 30%;
+
+
 }

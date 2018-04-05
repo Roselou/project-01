@@ -10,69 +10,84 @@
 	  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   	<!-- custom styles -->
- 	 <link rel="stylesheet" type="text/css" href="../public/styles/styles.css">
+ 	 <link rel="stylesheet" type="text/css" href="../styles/styles.css">
 
 
 	<title>Dream Exhibition</title>
 </head>
 <body>
 
+  <div class ="header">
 	<h1>Create Your Dream Exhibition</h1>
 	<!-- use background image in css -->
+  </div>
 
 	<div class="thumbnails">
-		<img src="../public/assets/img/charlotte-moorman.png">
-		<img src="../public/assets/img/eva-hesse.png">
-		<img src="../public/assets/img/hito_steyerl.png">
-		<img src="../public/assets/img/kara_walker.png">
-		<img src="../public/assets/img/louise_bourgeois.png">
-		<img src="../public/assets/img/lygia_clarke.png">
-		<img src="../public/assets/img/maya-deren.png">
-		<img src="../public/assets/img/Miere-Laderman-ukeles.png">
+		<img src="../assets/charlotte-moorman.png">
+		<img src="../assets/eva-hesse.png">
+		<img src="../assets/hito_steyerl.png">
+		<img src="../assets/kara_walker.png">
+		<img src="../assets/louise_bourgeois.png">
+		<img src="../assets/lygia_clarke.png">
+		<img src="../assets/maya-deren.png">
+		<img src="../assets/Miere-Laderman-ukeles.png">
 	</div>
 
 	<div class="container">
- 	<h2>Form control: select</h2>
   	<form>
    	 <div class="form-group">
    	 	 <div class="form-group">
    			 <label for="exhibition-title">Exhibition Title</label>
-   			 <input type="text" class="form-control" id="exhibition-title" aria-describedby="emailHelp" placeholder="ex: Art in the Age of the Internet">
+   			 <input type="text" class="form-control" id="exhibition-title"  placeholder="ex: Art in the Age of the Internet">
  		 </div>
-     	 <label for="artist">Select Your 3 Favorite Artist's from the List:</	label>
-      	<select class="form-control" id="artist">
-       	 <option>Artist 1</option>
-       	 <option>Artist 2</option>
-       	 <option>Artist 3</option>
-       	 <option>Artist 4</option>
-      	</select>
-       	 <select class="form-control" id="artist">
-       	 <option>Artist 1</option>
-       	 <option>Artist 2</option>
-       	 <option>Artist 3</option>
-       	 <option>Artist 4</option>
-     	 </select>
-       	 <select class="form-control" id="artist">
-       	 <option>Artist 1</option>
-       	 <option>Artist 2</option>
-       	 <option>Artist 3</option>
-       	 <option>Artist 4</option>
-     	 </select>
-    	 <label for="location">Select your dream location:</label>
+     	 <label for="artist">Select Your 3 Favorite Artists from the List:</label>
+      	<select class="form-control" id="artist1"></select>
+       	 <select class="form-control" id="artist2"></select>
+       	 <select class="form-control" id="artist3"></select>
+    	 <label for="location">Select your Dream Location:</label>
         <select class="form-control" id="location">
-     	   <option>Pompedu</option>
+     	   <option>Centre Pompidou</option>
      	   <option>SF Museum of Modern Art</option>
-     	   <option>The Louvre</option>
-     	   <option></option>
+     	   <option>Le Louvre</option>
+         <option>The Whitney Museum</option>
+     	   <option>The Hammer</option>
+         <option>The Broad</option>
      	 </select>
      	  <div class="form-group">
    			 <label for="exhibition-statement">Exhibition Statement</label>
-   			 <input type="text" class="form-control" id="exhibition-statement" aria-describedby="emailHelp" placeholder="Describe Exhibtion-Statement">
+   			 <input type="text" class="form-control" id="exhibition-statement"  placeholder="Describe Exhibition Statement">
  		 </div>
-      
+      <button type="button" class="btn btn-outline-dark" id = "create-btn">Create Exhibition</button>
    	 </div>
   	</form>
-	</div>
+  </div>
+    <div class = "sample-exhibitions">
+      <div class="card">
+      <h5 class="card-header">Art In The Age of the Internet</h5>
+      <div class="card-body">
+        <h5 class="card-title">Hito Steyerl, Shigeko Kubota, Pipilotti Rist</h5>
+        <h5 class="card-title">The Hammer</h5>
+        <p class="card-text">Art in the Age of the Internet, 1989 to Today examines how the internet has radically changed the field of art, especially in its production, distribution, and reception. The exhibition comprises a broad range of works across a variety of mediums—including painting, performance, photography, sculpture, video, and web-based projects—that all investigate the extensive effects of the internet on artistic practice and contemporary culture. Themes explored in the exhibition include emergent ideas of the body and notions of human enhancement; the internet as a site of both surveillance and resistance; the circulation and control of images and information; possibilities for new subjectivities, communities, and virtual worlds; and new economies of visibility initiated by social media.</p>
+        <a href="#" class="btn btn-primary">Update</a>
+        <a href="#" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+    </div>
+    <div class = "sample-exhibitions">
+      <div class="card">
+      <h5 class="card-header">Future Conscious</h5>
+      <div class="card-body">
+        <h5 class="card-title">Alicja Kwade, Alina Szapocznicow, Sophie Calle</h5>
+        <h5 class="card-title">SF Museum of Modern Art</h5>
+        <p class="card-text">Creating a safe space, real or imaginary that explicitly relates the relationship between time and space of that reflects upon our current political situation without being overly involved in the duress we currently face.</p>
+        <a href="#" class="btn btn-primary">Update</a>
+        <a href="#" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+    </div>
+
+   
+
 
 
 
@@ -93,6 +108,6 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
 
   <!-- custom script -->
-  <script type="text/javascript" src="../public/scripts/app.js"></script>
+  <script type="text/javascript" src="../scripts/app.js"></script>
 
 </html>
