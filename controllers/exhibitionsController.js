@@ -7,6 +7,7 @@ function index (req, res){
 		if (err){
 			console.log('EROOOOOR', err)
 		}
+		console.log(111111, allArtists)
 		res.json(allArtists)
 	})
 }
