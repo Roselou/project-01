@@ -24,10 +24,14 @@ $.ajax({
 
 $('#create-btn').on('click', function(e){
 	e.preventDefault();
+	    var form = $(this).closest('form');
+    var data = ($(this)).serialize()
+	var formData = form.serialize();
+	$(this).trigger('reset');
 	$.ajax({
 		method: 'POST',
 		url: 'api/exhibitions', 
-		data: $(this).serialize(),
+		data: formData,
 		success: function(createdExhibition){
 			renderExhibition(createdExhibition);
 		},
@@ -114,7 +118,38 @@ function pageExhibition(exhibition) {
   
 };
 
+function renderExhibition(potato){
+	var createdExhibitions = (`
+	  	<div class="card">
+	      <h5 class="card-header">${exhibition.title}</h5>
+	      <div class="card-body">
+	        <h5 class="card-title">${exhibition.artists.name},
+	        ${exhibition.artists.name}, ${exhibition.artists.name}</h5>
+	        <h5 class="card-title">${exhibition.location.location}</h5>
+	        <p class="card-text">Art in the Age of the Internet, 1989 to Today examines how the internet has radically changed the field of art, especially in its production, distribution, and reception. The exhibition comprises a broad range of works across a variety of mediums—including painting, performance, photography, sculpture, video, and web-based projects—that all investigate the extensive effects of the internet on artistic practice and contemporary culture. Themes explored in the exhibition include emergent ideas of the body and notions of human enhancement; the internet as a site of both surveillance and resistance; the circulation and control of images and information; possibilities for new subjectivities, communities, and virtual worlds; and new economies of visibility initiated by social media.</p>
+	        <a href="#" class="btn btn-primary">Update</a>
+	        <a href="#" class="btn btn-primary">Delete</a>
+	      </div>
+	    </div>
+	    </div>
+	    <div class = "sample-exhibitions">
+	      <div class="card">
+	      <h5 class="card-header">${exhibition.title}</h5>
+	      <div class="card-body">
+	        <h5 class="card-title">${exhibition.artists.name}, 
+	        ${exhibition.artists.name}, ${exhibition.artists.name}</h5>
+	        <h5 class="card-title">${exhibition.location.location}</h5>
+	        <p class="card-text">Creating a safe space, real or imaginary that explicitly relates the relationship between time and space of that reflects upon our current political situation without being overly involved in the duress we currently face.</p>
+	        <a href="#" class="btn btn-primary">Update</a>
+	        <a href="#" class="btn btn-primary">Delete</a>
+	      </div>
+	    </div>
+    `)
+    return $('.sample-exhibitions').prepend(createdExhibitions);
+	//})
 
+
+}
 
 
 
