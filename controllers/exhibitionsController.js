@@ -13,38 +13,31 @@ function index (req, res){
 }
 
 function create(req, res){
-	db.Exhibition.create(req.body, function(err, exhibition){
-		if (err){
-			console.log('ERRERERER', err);
-		} 
-		// var lastExh = exhibition[exhibitionx.length-1];
-		// var nextId = lastExh+1;
-		console.log(req.body);
-		var newExh = {
-			// _id: nextId,
-			title: req.body.title,
-			artists: req.body.artists,
-			location: {location: req.body.location},
-			statement: req.body.statement
-		}
-		// xhibition.push(newExh)
+	
+	db.Artist.findOne({name: req.body.artist1}, function(err, firstArtist){
+		db.Artist.findOne({name: req.body.artist2}, function(err, secondArtist){
+			db.Artist.findOne({name: req.body.artist3}, function(err, thirdArtist){
+				console.log(firstArtist, secondArtist, thirdArtist);
 
-		res.json(newExh)
-	}) 
+				var newExh = {
+					title: req.body.title,
+					artists: [firstArtist, secondArtist, thirdArtist],
+					location: {location: req.body.location},
+					statement: req.body.statement
+				}
+				db.Exhibition.create(newExh, function(err, createdExhibition){
+					if (err){
+						console.log('ERRERERER', err);
+					} 
+					console.log(createdExhibition);
+					res.json(createdExhibition);
+				})
+			})	
+
+		}) 
+	})
 }
 
-// db.Artist.findOne({name: req.body.artist1}, function(err, firstArtist){
-		// db.Artist.findOne({name: req.body.artist2}, function(err, secondArtist){
-			// db.Artist.findOne({name: req.body.artist3}, function(err, thirdArtist){
-				// console.log(firstArtis, secondArtist, thirdArtist);
-				// var newExh = {
-// 					title: req.body.title,
-// 					artists: [firstArtist, secondArtist, thirdArtist],
-// 					location: {location: req.body.location},
-// 					statement: req.body.statement
-// 				}
-// 		}
-// })
 
 // function show(req, res){
 
