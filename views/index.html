@@ -7,7 +7,11 @@
  	 <meta name="viewport" content="width=device-width, initial-scale=1">
 
   	<!-- bootstrap css -->
-	  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
   	<!-- custom styles -->
  	 <link rel="stylesheet" type="text/css" href="../styles/styles.css">
@@ -34,32 +38,31 @@
 	</div>
 
 	<div class="container">
-  	<form>
+  	<form id="mainForm">
    	 <div class="form-group">
    	 	 <div class="form-group">
    			 <label for="exhibition-title">Exhibition Title</label>
-   			 <input type="text" class="form-control" id="exhibition-title"  placeholder="ex: Art in the Age of the Internet">
+   			 <input type="text" class="form-control"  id="exhibition-title" name="title" placeholder="ex: Art in the Age of the Internet">
  		 </div>
      	 <label for="artist">Select Your 3 Favorite Artists from the List:</label>
-      	<select class="form-control" id="artist1"></select>
-       	 <select class="form-control" id="artist2"></select>
-       	 <select class="form-control" id="artist3"></select>
+      	<select class="form-control" id="artist1" name="artist1" value= "artist1" ></select>
+       	 <select class="form-control" id="artist2" name="artist2" value= "artist2"></select>
+       	 <select class="form-control" id="artist3" name="artist3" value= "artist3"></select>
     	 <label for="location">Select your Dream Location:</label>
-        <select class="form-control" id="location">
-     	   <option value = "faaaaaah">Centre Pompidou</option>
-     	   <option value = "faaaaaah">SF Museum of Modern Art</option>
+        <select class="form-control" id="location" name="location" value= "location">
+     	   <option>Centre Pompidou</option>
+     	   <option>SF Museum of Modern Art</option>
      	   <option>Le Louvre</option>
          <option>The Whitney Museum</option>
      	   <option>The Hammer</option>
          <option>The Broad</option>
      	 </select>
      	  <div class="form-group">
-            <input type="radio" name="radio" value="radio2" id="r2">
 
-   			 <label for="exhibition-statement">Exhibition Statement</label>
-   			 <input type="text" class="form-control" id="exhibition-statement"  placeholder="Describe Exhibition Statement">
+   			 <label for="exhibition-statement" >Exhibition Statement</label>
+   			 <input type="text" class="form-control" id="exhibition-statement" name="statement" placeholder="Describe Exhibition Statement">
  		 </div>
-      <button type="button" class="btn btn-outline-dark" id = "create-btn">Create Exhibition</button>
+      <button type="submit" class="btn btn-outline-dark" id = "create-btn">Create Exhibition</button>
    	 </div>
   	</form>
   </div>
@@ -81,7 +84,13 @@
   crossorigin="anonymous"></script>
 
   <!-- bootstrap js -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+  <!-- Bootstrap js -->
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
   <!-- handlebars -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>

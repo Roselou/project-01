@@ -17,7 +17,19 @@ function create(req, res){
 		if (err){
 			console.log('ERRERERER', err);
 		} 
-		res.json(exhibition)
+		// var lastExh = exhibition[exhibitionx.length-1];
+		// var nextId = lastExh+1;
+		console.log(req.body);
+		var newExh = {
+			// _id: nextId,
+			title: req.body.title,
+			artists: req.body.artists,
+			location: {location: req.body.location},
+			statement: req.body.statement
+		}
+		// xhibition.push(newExh)
+
+		res.json(newExh)
 	}) 
 }
 
