@@ -154,7 +154,7 @@ function renderExhibition(exhibitionObj){
 		        <h5 class="card-title">${exhibitionObj[i].artists[0].name},
 		        ${exhibitionObj[i].artists[1].name}, ${exhibitionObj[i].artists[2].name}</h5>
 
-		        <h5 class="card-title">${exhibitionObj[i].location[0]}</h5>
+		        <h5 class="card-title">${exhibitionObj[i].location.location}</h5>
 		        <p class="card-text">${exhibitionObj[i].statement}</p>
 		        <a href="#" class="btn btn-primary">Update</a>
 		        <a href="#" class="btn btn-primary">Delete</a>
