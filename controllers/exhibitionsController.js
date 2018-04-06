@@ -33,6 +33,19 @@ function create(req, res){
 	}) 
 }
 
+// db.Artist.findOne({name: req.body.artist1}, function(err, firstArtist){
+		// db.Artist.findOne({name: req.body.artist2}, function(err, secondArtist){
+			// db.Artist.findOne({name: req.body.artist3}, function(err, thirdArtist){
+				// console.log(firstArtis, secondArtist, thirdArtist);
+				// var newExh = {
+// 					title: req.body.title,
+// 					artists: [firstArtist, secondArtist, thirdArtist],
+// 					location: {location: req.body.location},
+// 					statement: req.body.statement
+// 				}
+// 		}
+// })
+
 // function show(req, res){
 
 // }
