@@ -49,7 +49,7 @@ function show(req, res){
 
 // }
 
-function update(exhibitions, exhIdToUpdate, updatedExhibitions){
+function update(req, res){
 
      db.Exhibition.findById(req.params.id, function(err, foundExh){
 		if (err) {console.log('youre wrong')}
@@ -60,7 +60,6 @@ function update(exhibitions, exhIdToUpdate, updatedExhibitions){
 				if(err){ console.log('saving failed')}
 					console.log(savedExh);
 					res.json(savedExh);
-				renderExhibition(savedExh)
 			});
 	});
 
