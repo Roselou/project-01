@@ -101,7 +101,7 @@ app.get('/api/exhibitions', controllers.exhibitions.index);
 
 app.post('/api/exhibitions', controllers.exhibitions.create);
 
-
+app.put('/api/exhibitions/:id', controllers.exhibitions.update);
 
 
 

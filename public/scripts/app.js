@@ -24,11 +24,8 @@ $.ajax({
 	}
 })
 
-$('#mainForm').on('submit', function(e){
-	e.preventDefault();
-	// var form = $(this).serialize();
- //    var data = ($(this)).serialize()
-	// var formData = form.serialize();
+$('#mainForm').on('submit', function(event){
+	event.preventDefault();
 	var newExh = $(this).serialize();
 	console.log(newExh);
 	$(this).trigger('reset');
@@ -43,30 +40,60 @@ $('#mainForm').on('submit', function(e){
 		},
 		error: handlePostError
 	});
-	$(this).trigger('reset');
 });
 
-// $('#create-btn').on('click', function(e){
-// 	e.preventDefault();
-// 	var form = $(this).closest('form');
-//     var data = ($(this)).serialize()
-// 	var formData = form.serialize();
-// 	var form = $('#mainForm');
-// 	console.log(form)
-// 	// debugger
-// 	$(this).trigger('reset');
-// 	$.ajax({
-// 		method: 'POST',
-// 		url: $(form).attr('action'), 
-// 		data: formData,
-// 		success: function(createdExhibition){
-// 			renderExhibition(createdExhibition);
-// 		},
-// 		error: handlePostError
-// 	});
-// 	$(this).trigger('reset');
-// });
 
+$('.sample-exhibitions').on('click', '#updateBtn', function(event){	
+	var exhibitionTitle = $(this).parent().parent().find('.card-header').text();
+	var exhibitionStatement = $(this).parent().find('.card-text').text();
+
+	$(this).parent().append(`
+		<form id="edit-form">
+   	 <div class="form-group">
+   	 	 <div class="form-group">
+   			 <label for="exhibition-title">Exhibition Title</label>
+   			 <input type="text" class="form-control"  id="exhibition-title" name="title" placeholder="ex: Art in the Age of the Internet">
+ 		 </div>
+     	  <div class="form-group">
+   			 <label for="exhibition-statement" >Exhibition Statement</label>
+   			 <input type="text" class="form-control" id="exhibition-statement" name="statement" placeholder="Describe Exhibition Statement">
+ 		 </div>
+      <button type="submit" class="btn btn-outline-dark" id = "update-btn">Update Exhibition</button>
+   	 </div>
+  	</form>
+	`)
+	// $(this).parent().parent().remove();
+	// find the current card's title
+	// find the current card's description
+	// remove the card
+	
+	// append an edit-form with a title and description
+	// fill those fields in with current card's title & current card's description
+	// appended form will have fields of exhibition data (title, artists, statement)
+});
+
+$('.sample-exhibitions').on('submit', '#edit-form', function(event){
+	event.preventDefault();
+	var exhId = $(this).closest('.btn-primary').find('#updateBtn');
+	debugger;
+	console.log('*************', exhId);
+	var formData = $(this).serialize();
+
+	$(this).trigger('reset');
+	$.ajax({
+		method: 'PUT',
+		url: '/api/exhibitions/' + exhId, 
+		data: formData,
+		success: function onUpdateSuccess(updatedExhibition){
+			console.log('updating', updatedExhibition);
+	// 			//renderExhibition(updatedExhibition)
+	// 			allExh.splice(allExh.indexOf(exhToUpdate), 1, json);
+	// 			renderExhibition(updatedExhibition);
+				
+		},
+		error: handlePostError
+	});
+})
 
 
 //DO NOT TOUCH - DOCUMENT.READY
@@ -88,14 +115,6 @@ function handlePostError(errs){
 
 function artistsInForm(artists){
 	console.log('rendering artists', artists);
-	//debugger
-	// var arrayOfArtists = exhibition.artists.map(function(eachArtist){
-	// 	return `${eachArtist.name} - ${eachArtist.medium}`;
-	// });
-	//var formattedArtists = arrayOfArtists.join(', ')
-	// var htmlTo
-
-	// var artists = exhibition
 	artists.forEach(function(artist){
 		var namesAppendForm1 = (
 				`
@@ -110,40 +129,6 @@ function artistsInForm(artists){
 	});
 }
 
-// function pageExhibition(exhibition) {
-//   console.log('rendering exhibition samples', exhibition);
-//  //exhibition.forEach(function(eachExh){
-			
-// 	var displayedExhibitions = (`
-// 	  	<div class="card">
-// 	      <h5 class="card-header">${exhibition[0].title}</h5>
-// 	      <div class="card-body">
-// 	        <h5 class="card-title">${exhibition[0].artists[0].name},
-// 	        ${exhibition[0].artists[1].name}, ${exhibition[0].artists[2].name}</h5>
-// 	        <h5 class="card-title">${exhibition[0].location.location}</h5>
-// 	        <p class="card-text">Art in the Age of the Internet, 1989 to Today examines how the internet has radically changed the field of art, especially in its production, distribution, and reception. The exhibition comprises a broad range of works across a variety of mediums—including painting, performance, photography, sculpture, video, and web-based projects—that all investigate the extensive effects of the internet on artistic practice and contemporary culture. Themes explored in the exhibition include emergent ideas of the body and notions of human enhancement; the internet as a site of both surveillance and resistance; the circulation and control of images and information; possibilities for new subjectivities, communities, and virtual worlds; and new economies of visibility initiated by social media.</p>
-// 	        <a href="#" class="btn btn-primary">Update</a>
-// 	        <a href="#" class="btn btn-primary">Delete</a>
-// 	      </div>
-// 	    </div>
-// 	    </div>
-// 	    <div class = "sample-exhibitions">
-// 	      <div class="card">
-// 	      <h5 class="card-header">${exhibition[1].title}</h5>
-// 	      <div class="card-body">
-// 	        <h5 class="card-title">${exhibition[1].artists[0].name}, 
-// 	        ${exhibition[1].artists[1].name}, ${exhibition[1].artists[2].name}</h5>
-// 	        <h5 class="card-title">${exhibition[1].location.location}</h5>
-// 	        <p class="card-text">Creating a safe space, real or imaginary that explicitly relates the relationship between time and space of that reflects upon our current political situation without being overly involved in the duress we currently face.</p>
-// 	        <a href="#" class="btn btn-primary">Update</a>
-// 	        <a href="#" class="btn btn-primary">Delete</a>
-// 	      </div>
-// 	    </div>
-//     `)
-// 	  return $('.sample-exhibitions').append(displayedExhibitions);
-// 	//})
-  
-// };
 
 function renderExhibition(exhibitionObj){
 	for (var i = 0; i < exhibitionObj.length; i++){
@@ -156,15 +141,15 @@ function renderExhibition(exhibitionObj){
 
 		        <h5 class="card-title">${exhibitionObj[i].location.location}</h5>
 		        <p class="card-text">${exhibitionObj[i].statement}</p>
-		        <a href="#" class="btn btn-primary">Update</a>
-		        <a href="#" class="btn btn-primary">Delete</a>
+		        <a type = "submit" id = "updateBtn" class="btn btn-primary">Update</a>
+		        <a type = "submit" data-id="${exhibitionObj[i]._id}" id = "deleteBtn" class="btn btn-primary">Delete</a>
 		      </div>
 		    </div>
 		    </div>
 	    `)
      $('.sample-exhibitions').append(createdExhibitions);
 	}
-	return exhibitionObj;
+	//return exhibitionObj;
 }
 
 
