@@ -45,34 +45,35 @@ $('#mainForm').on('submit', 'editExh',function(event){
 
 
 $('.sample-exhibitions').on('click', '#updateBtn', function(event){	
-	// var exhibitionTitle = $(this).parent().parent().find('.card-header').text();
-	// var exhibitionStatement = $(this).parent().find('.card-text').text();
+		event.preventDefault();
+
 	debugger
-	var editForm = $(this).closest('.form-group');
-  	var exhId = editForm.data('editForm._id');
+	// var editForm = $(this).siblings();
+  	var exhId = $(this).data('id');
   	console.log('editForm to edit', exhId);
 
   	debugger
 	$(this).parent().append(`
-		<form data-form-id="${editForm._id}">
+	<form data-form-id="${exhId}">
    	 <div class="form-group">
    	 	 <div class="form-group">
    			 <label for="exhibition-title">Exhibition Title</label>
-   			 <input type="text" value="${editForm.title}" class="form-control"  data-title-id="exhibitionTitle" name="title" placeholder="ex: Art in the Age of the Internet">
+   			 <input type="text" value="${exhId.title}" class="form-control"  data-title-id="exhibitionTitle" name="title" placeholder="ex: Art in the Age of the Internet">
  		 </div>
      	  <div class="form-group">
    			 <label for="exhibition-statement" >Exhibition Statement</label>
-   			 <input type="text" value="${editForm.statement}class="form-control" data-statement-id="exhibitionStatement" name="statement" placeholder="Describe Exhibition Statement">
+   			 <input type="text" value="${exhId.statement}class="form-control" data-statement-id="exhibitionStatement" name="statement" placeholder="Describe Exhibition Statement">
  		 </div>
       <button type="submit" class="btn btn-outline-dark" id = "update-btn" data-update-id="${editForm._id}">Update Exhibition</button>
    	 </div>	
-  	</form>
+  	</form>	
 	`)
+	console.log(exhId)
 });
 
 $('.sample-exhibitions').on('submit', '#edit-form', function(event){
 	event.preventDefault();
-	var exhId = $(this).closest('#edit-form').data('.form-group');
+	var exhId = $(this).data('id');
 	debugger;
 
 	 var data = {
@@ -143,9 +144,10 @@ function renderExhibition(exhibitionObj){
 
 		        <h5 class="card-title">${exhibitionObj[i].location.location}</h5>
 		        <p class="card-text">${exhibitionObj[i].statement}</p>
-		        <a type = "submit" id = "updateBtn" class="btn btn-primary">Update</a>
-		        <a type = "submit" data-id="${exhibitionObj[i]._id}" id = "deleteBtn" class="btn btn-primary">Delete</a>
+		        <a type = "submit" data-id="${exhibitionObj[i]._id}" id = "updateBtn" class="btn btn-primary">Update</a>
+		        <a type = "submit" data-id="${exhibitionObj[i]._id}" id ="deleteBtn" class="btn btn-primary">Delete</a>
 		      </div>
+
 		    </div>
 		    </div>
 	    `)
