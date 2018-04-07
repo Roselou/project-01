@@ -50,23 +50,10 @@ function show(req, res){
 // }
 
 function update(exhibitions, exhIdToUpdate, updatedExhibitions){
-	 // var idToFind = req.params.id;
-  //    exhibitions.forEach(function(foundExhibition){
-  //     if (eachExh._id === exhIdToUpdate){
-  //      foundExhibition.title = req.body.title
-  //      foundExhibition.artists = req.body.artists
-  //      foundExhibition.location = req.body.location
-  //      foundExhibition.statement = req.body.statement
-  //     } 
-  //     return foundExhibition
-  //    });
-  //    res.json(foundExhibition)
 
      db.Exhibition.findById(req.params.id, function(err, foundExh){
 		if (err) {console.log('youre wrong')}
 			foundExh.title = req.body.title;
-			// foundExh.artists.name = req.body.artists.name;
-			// foundExh.location = req.body.location;
 			foundExh.statement = req.body.statement;
 
 			foundExh.save(function(err, savedExh){

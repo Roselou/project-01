@@ -24,7 +24,8 @@ $.ajax({
 	}
 })
 
-$('#mainForm').on('submit', function(event){
+$('#mainForm').on('submit', 'editExh',function(event){
+
 	event.preventDefault();
 	var newExh = $(this).serialize();
 	console.log(newExh);
@@ -53,17 +54,17 @@ $('.sample-exhibitions').on('click', '#updateBtn', function(event){
 
   	debugger
 	$(this).parent().append(`
-		<form id="${editForm._id}">
+		<form data-form-id="${editForm._id}">
    	 <div class="form-group">
    	 	 <div class="form-group">
    			 <label for="exhibition-title">Exhibition Title</label>
-   			 <input type="text" value="${editForm.title}" class="form-control"  id="exhibitionTitle" name="title" placeholder="ex: Art in the Age of the Internet">
+   			 <input type="text" value="${editForm.title}" class="form-control"  data-title-id="exhibitionTitle" name="title" placeholder="ex: Art in the Age of the Internet">
  		 </div>
      	  <div class="form-group">
    			 <label for="exhibition-statement" >Exhibition Statement</label>
-   			 <input type="text" value="${editForm.statement}class="form-control" id="exhibitionStatement" name="statement" placeholder="Describe Exhibition Statement">
+   			 <input type="text" value="${editForm.statement}class="form-control" data-statement-id="exhibitionStatement" name="statement" placeholder="Describe Exhibition Statement">
  		 </div>
-      <button type="submit" class="btn btn-outline-dark" id = "update-btn" data-song-id="${editForm._id}">Update Exhibition</button>
+      <button type="submit" class="btn btn-outline-dark" id = "update-btn" data-update-id="${editForm._id}">Update Exhibition</button>
    	 </div>	
   	</form>
 	`)
