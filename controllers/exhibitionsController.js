@@ -45,9 +45,15 @@ function show(req, res){
 	});
 };
 
-// function destroy(req, res){
+function destroy(req, res){
+	db.Exhibition.findByIdAndRemove(req.params.id, function (err, foundExh){
+		if(err){
+			console.log(err)
+		}
+		res.json(foundExh)
+	})
 
-// }
+}
 
 function update(req, res){
 
@@ -65,7 +71,7 @@ function update(req, res){
 
 
 
-   //UPDATE CLoster
+   //UPDATE Coser
  };
 
 
@@ -73,6 +79,6 @@ module.exports = {
 	index:index,
 	create: create,
 	show: show,
-	// destroy: destroy,
+	destroy: destroy,
 	update: update
 }

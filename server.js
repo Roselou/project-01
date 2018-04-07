@@ -106,7 +106,7 @@ app.post('/api/exhibitions', controllers.exhibitions.create);
 
 app.put('/api/exhibitions/:id', controllers.exhibitions.update);
 
-
+app.delete('/api/exhibitions/:id', controllers.exhibitions.destroy);
 
 
 

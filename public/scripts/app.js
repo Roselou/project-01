@@ -92,6 +92,28 @@ $('.sample-exhibitions').on('submit', '#edit-form', function(event){
 	});
 })
 
+$('.sample-exhibitions').on('click', '#deleteBtn', function(e){
+	e.preventDefault();
+	var exhId = $(this).data('id');
+
+	console.log('DELETING', exhId);
+	var formData = $(this).serialize();
+	//debugger
+	// $(this).trigger('reset');
+	$.ajax({
+		method: 'DELETE',
+		url: '/api/exhibitions/' + exhId, 
+		data: formData,
+		success: function onUpdateSuccess(deletedExhibition){
+			console.log('updating', deletedExhibition);
+				//renderExhibition(deletedExhibition)
+				location.reload()
+		},
+		error: handlePostError
+	});
+});
+
+
 
 //DO NOT TOUCH - DOCUMENT.READY
 });
