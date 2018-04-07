@@ -47,28 +47,28 @@ $('#mainForm').on('submit', 'editExh',function(event){
 $('.sample-exhibitions').on('click', '#updateBtn', function(event){	
 		event.preventDefault();
 
-	debugger
+	//debugger
 	// var editForm = $(this).siblings();
   	var exhId = $(this).data('id');
   	console.log('editForm to edit', exhId);
 
-  	debugger
+  	//debugger
 	$(this).parent().append(`
 	<form data-id="${exhId}" id="edit-form">
    	 <div class="form-group">
    	 	 <div class="form-group">
    			 <label for="exhibition-title">Exhibition Title</label>
-   			 <input type="text" value="exhId.title" class="form-control"  data-id="${exhibitionTitle}" name="title" placeholder="ex: Art in the Age of the Internet">
+   			 <input type="text" value="exhId.title" class="form-control"  data-id="${exhId.title}" id = "titleId" name="title" placeholder="ex: Art in the Age of the Internet">
  		 </div>
      	  <div class="form-group">
    			 <label for="exhibition-statement" >Exhibition Statement</label>
-   			 <input type="text" value="exhId.statement" class="form-control" data-id= "${exhibitionStatement}" name="statement" placeholder="Describe Exhibition Statement">
+   			 <input type="text" value="exhId.statement" class="form-control" data-id= "${exhId.statement}" id = "statementId" name="statement" placeholder="Describe Exhibition Statement">
  		 </div>
       <button type="submit" class="btn btn-outline-dark" id = "update-btn" data-id= "${exhId}" >Update Exhibition</button>
    	 </div>	
   	</form>	
 	`)
-	console.log('updating', updatedExhibition);
+	//console.log('updating', updatedExhibition);
 });
 
 $('.sample-exhibitions').on('submit', '#edit-form', function(event){
@@ -77,7 +77,7 @@ $('.sample-exhibitions').on('submit', '#edit-form', function(event){
 
 	console.log('*************', exhId);
 	var formData = $(this).serialize();
-	debugger
+	//debugger
 	// $(this).trigger('reset');
 	$.ajax({
 		method: 'PUT',
@@ -85,7 +85,8 @@ $('.sample-exhibitions').on('submit', '#edit-form', function(event){
 		data: formData,
 		success: function onUpdateSuccess(updatedExhibition){
 			console.log('updating', updatedExhibition);
-				
+				renderExhibition(updatedExhibition)
+				location.reload()
 		},
 		error: handlePostError
 	});
