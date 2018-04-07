@@ -44,51 +44,52 @@ $('#mainForm').on('submit', function(event){
 
 
 $('.sample-exhibitions').on('click', '#updateBtn', function(event){	
-	var exhibitionTitle = $(this).parent().parent().find('.card-header').text();
-	var exhibitionStatement = $(this).parent().find('.card-text').text();
+	// var exhibitionTitle = $(this).parent().parent().find('.card-header').text();
+	// var exhibitionStatement = $(this).parent().find('.card-text').text();
+	debugger
+	var editForm = $(this).closest('.form-group');
+  	var exhId = editForm.data('editForm._id');
+  	console.log('editForm to edit', exhId);
 
+  	debugger
 	$(this).parent().append(`
-		<form id="edit-form">
+		<form id="${editForm._id}">
    	 <div class="form-group">
    	 	 <div class="form-group">
    			 <label for="exhibition-title">Exhibition Title</label>
-   			 <input type="text" class="form-control"  id="exhibition-title" name="title" placeholder="ex: Art in the Age of the Internet">
+   			 <input type="text" value="${editForm.title}" class="form-control"  id="exhibitionTitle" name="title" placeholder="ex: Art in the Age of the Internet">
  		 </div>
      	  <div class="form-group">
    			 <label for="exhibition-statement" >Exhibition Statement</label>
-   			 <input type="text" class="form-control" id="exhibition-statement" name="statement" placeholder="Describe Exhibition Statement">
+   			 <input type="text" value="${editForm.statement}class="form-control" id="exhibitionStatement" name="statement" placeholder="Describe Exhibition Statement">
  		 </div>
-      <button type="submit" class="btn btn-outline-dark" id = "update-btn">Update Exhibition</button>
-   	 </div>
+      <button type="submit" class="btn btn-outline-dark" id = "update-btn" data-song-id="${editForm._id}">Update Exhibition</button>
+   	 </div>	
   	</form>
 	`)
-	// $(this).parent().parent().remove();
-	// find the current card's title
-	// find the current card's description
-	// remove the card
-	
-	// append an edit-form with a title and description
-	// fill those fields in with current card's title & current card's description
-	// appended form will have fields of exhibition data (title, artists, statement)
 });
 
 $('.sample-exhibitions').on('submit', '#edit-form', function(event){
 	event.preventDefault();
-	var exhId = $(this).closest('.btn-primary').find('#updateBtn');
+	var exhId = $(this).closest('#edit-form').data('.form-group');
 	debugger;
+
+	 var data = {
+    	title: $exhibitionTitle.find('.form-control').val(),
+   	 	statement: $exhibitionStatement.find('.form-control').val(),
+ 	 };
+
+ 	 debugger
 	console.log('*************', exhId);
 	var formData = $(this).serialize();
-
-	$(this).trigger('reset');
+	debugger
+	// $(this).trigger('reset');
 	$.ajax({
 		method: 'PUT',
 		url: '/api/exhibitions/' + exhId, 
 		data: formData,
 		success: function onUpdateSuccess(updatedExhibition){
 			console.log('updating', updatedExhibition);
-	// 			//renderExhibition(updatedExhibition)
-	// 			allExh.splice(allExh.indexOf(exhToUpdate), 1, json);
-	// 			renderExhibition(updatedExhibition);
 				
 		},
 		error: handlePostError
@@ -148,7 +149,7 @@ function renderExhibition(exhibitionObj){
 		    </div>
 	    `)
      $('.sample-exhibitions').append(createdExhibitions);
-	}
+	};
 	//return exhibitionObj;
 }
 

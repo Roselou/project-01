@@ -98,6 +98,9 @@ app.get('/api/artists', function(req, res){
 })
 
 app.get('/api/exhibitions', controllers.exhibitions.index);
+app.get('/api/exhibitions/:exhibitions_id', function(req, res){
+	res.send(json);
+});
 
 app.post('/api/exhibitions', controllers.exhibitions.create);
 
