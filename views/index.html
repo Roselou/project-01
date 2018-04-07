@@ -7,7 +7,11 @@
  	 <meta name="viewport" content="width=device-width, initial-scale=1">
 
   	<!-- bootstrap css -->
-	  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
   	<!-- custom styles -->
  	 <link rel="stylesheet" type="text/css" href="../styles/styles.css">
@@ -34,18 +38,18 @@
 	</div>
 
 	<div class="container">
-  	<form>
+  	<form id="mainForm">
    	 <div class="form-group">
    	 	 <div class="form-group">
    			 <label for="exhibition-title">Exhibition Title</label>
-   			 <input type="text" class="form-control" id="exhibition-title"  placeholder="ex: Art in the Age of the Internet">
+   			 <input type="text" class="form-control"  id="exhibition-title" name="title" placeholder="ex: Art in the Age of the Internet">
  		 </div>
      	 <label for="artist">Select Your 3 Favorite Artists from the List:</label>
-      	<select class="form-control" id="artist1"></select>
-       	 <select class="form-control" id="artist2"></select>
-       	 <select class="form-control" id="artist3"></select>
+      	<select class="form-control" id="artist1" name="artist1" value= "artist1" ></select>
+       	 <select class="form-control" id="artist2" name="artist2" value= "artist2"></select>
+       	 <select class="form-control" id="artist3" name="artist3" value= "artist3"></select>
     	 <label for="location">Select your Dream Location:</label>
-        <select class="form-control" id="location">
+        <select class="form-control" id="location" name="location" value= "location">
      	   <option>Centre Pompidou</option>
      	   <option>SF Museum of Modern Art</option>
      	   <option>Le Louvre</option>
@@ -54,37 +58,15 @@
          <option>The Broad</option>
      	 </select>
      	  <div class="form-group">
-   			 <label for="exhibition-statement">Exhibition Statement</label>
-   			 <input type="text" class="form-control" id="exhibition-statement"  placeholder="Describe Exhibition Statement">
+
+   			 <label for="exhibition-statement" >Exhibition Statement</label>
+   			 <input type="text" class="form-control" id="exhibition-statement" name="statement" placeholder="Describe Exhibition Statement">
  		 </div>
-      <button type="button" class="btn btn-outline-dark" id = "create-btn">Create Exhibition</button>
+      <button type="submit" class="btn btn-outline-dark" id = "create-btn">Create Exhibition</button>
    	 </div>
   	</form>
   </div>
-    <div class = "sample-exhibitions">
-      <div class="card">
-      <h5 class="card-header">Art In The Age of the Internet</h5>
-      <div class="card-body">
-        <h5 class="card-title">Hito Steyerl, Shigeko Kubota, Pipilotti Rist</h5>
-        <h5 class="card-title">The Hammer</h5>
-        <p class="card-text">Art in the Age of the Internet, 1989 to Today examines how the internet has radically changed the field of art, especially in its production, distribution, and reception. The exhibition comprises a broad range of works across a variety of mediums—including painting, performance, photography, sculpture, video, and web-based projects—that all investigate the extensive effects of the internet on artistic practice and contemporary culture. Themes explored in the exhibition include emergent ideas of the body and notions of human enhancement; the internet as a site of both surveillance and resistance; the circulation and control of images and information; possibilities for new subjectivities, communities, and virtual worlds; and new economies of visibility initiated by social media.</p>
-        <a href="#" class="btn btn-primary">Update</a>
-        <a href="#" class="btn btn-primary">Delete</a>
-      </div>
-    </div>
-    </div>
-    <div class = "sample-exhibitions">
-      <div class="card">
-      <h5 class="card-header">Future Conscious</h5>
-      <div class="card-body">
-        <h5 class="card-title">Alicja Kwade, Alina Szapocznicow, Sophie Calle</h5>
-        <h5 class="card-title">SF Museum of Modern Art</h5>
-        <p class="card-text">Creating a safe space, real or imaginary that explicitly relates the relationship between time and space of that reflects upon our current political situation without being overly involved in the duress we currently face.</p>
-        <a href="#" class="btn btn-primary">Update</a>
-        <a href="#" class="btn btn-primary">Delete</a>
-      </div>
-    </div>
-    </div>
+    <div class = "sample-exhibitions"></div>
 
    
 
@@ -102,7 +84,13 @@
   crossorigin="anonymous"></script>
 
   <!-- bootstrap js -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+  <!-- Bootstrap js -->
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
   <!-- handlebars -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>

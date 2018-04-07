@@ -98,12 +98,15 @@ app.get('/api/artists', function(req, res){
 })
 
 app.get('/api/exhibitions', controllers.exhibitions.index);
+// app.get('/api/exhibitions', function(req, res){
+// 	res.send(json);
+// });
 
 app.post('/api/exhibitions', controllers.exhibitions.create);
 
+app.put('/api/exhibitions/:id', controllers.exhibitions.update);
 
-
-
+app.delete('/api/exhibitions/:id', controllers.exhibitions.destroy);
 
 
 
