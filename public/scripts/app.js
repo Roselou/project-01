@@ -164,7 +164,7 @@ function renderExhibition(exhibitionObj){
 		    </div>
 		    </div>
 	    `)
-     $('.sample-exhibitions').append(createdExhibitions);
+     $('.sample-exhibitions').prepend(createdExhibitions);
 	};
 	//return exhibitionObj;
 }
