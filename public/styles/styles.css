@@ -3,22 +3,37 @@ body {
 	background: #4f4f4f;
 	word-spacing: 1px;
 	letter-spacing: 0.5px;
-	line-height: 1.618em;
+/*	line-height: 1.618em;*/
 	width: 1024px;
 	margin: auto;
+	font-family: 'Roboto', sans-serif;
 }
 /*Heading*/
 
 .header {
-	background-image: url('../assets/alicja-2.jpeg');
+	background-image: url('../assets/eva.jpg');
 	color: #FFFFFF;
 	height: 13em;
 	border-bottom: 0;
 }
 
 h1 {
-	padding: 2em;
-	background-color: rgba(193, 193, 193, .6);
+	padding: .5em;
+	padding-top: 2.2em;
+	background-color: rgba(193, 193, 193, .5);
+	/*position: absolute;
+	top: 1.5em;*/
+	text-align: center;
+	width: 1024;
+	height: 10em;
+	font-family: 'Signika Negative', sans-serif;
+
+}
+
+h3 {
+	padding-bottom: 0;
+	padding-top: 1em;
+
 }
 
 
@@ -45,6 +60,10 @@ h1 {
 	padding: 1em;
 	margin: .5em;
 }
+
+/*.title {
+	padding-top: 1em;
+}*/
 
 #create-btn {
     margin-left: 33%;

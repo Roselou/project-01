@@ -11,6 +11,7 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Signika+Negative" rel="stylesheet">
 
 
   	<!-- custom styles -->
@@ -22,16 +23,16 @@
 <body>
 
   <div class ="header">
-	<h1>Create Your Dream Exhibition</h1>
+	<h1>CREATE YOUR DREAM EXHIBITION</h1>
 	<!-- use background image in css -->
   </div>
 
 	<div class="thumbnails">
 		<img src="../assets/charlotte-moorman.png">
 		<img src="../assets/eva-hesse.png">
-		<img src="../assets/hito_steyerl.png">
+		<img src="../assets/hito-3.png">
 		<img src="../assets/kara_walker.png">
-		<img src="../assets/louise_bourgeois.png">
+		<img src="../assets/louise2.png">
 		<img src="../assets/lygia_clarke.png">
 		<img src="../assets/maya-deren.png">
 		<img src="../assets/Miere-Laderman-ukeles.png">
@@ -41,14 +42,14 @@
   	<form id="mainForm">
    	 <div class="form-group">
    	 	 <div class="form-group">
-   			 <label for="exhibition-title">Exhibition Title</label>
+   			 <div class = "title"><label for="exhibition-title"><h3>Exhibition Title</h3></label></div>
    			 <input type="text" class="form-control"  id="exhibition-title" name="title" placeholder="ex: Art in the Age of the Internet">
  		 </div>
-     	 <label for="artist">Select Your 3 Favorite Artists from the List:</label>
+     	 <div class="selectArtists"> <label for="artist"><h3>Select Your 3 Favorite Artists from the List:</h3></label></div>
       	<select class="form-control" id="artist1" name="artist1" value= "artist1" ></select>
        	 <select class="form-control" id="artist2" name="artist2" value= "artist2"></select>
        	 <select class="form-control" id="artist3" name="artist3" value= "artist3"></select>
-    	 <label for="location">Select your Dream Location:</label>
+    	 <div class = "selectLocation"><label for="location"><h3>Select your Dream Location:</h3></label></div>
         <select class="form-control" id="location" name="location" value= "location">
      	   <option>Centre Pompidou</option>
      	   <option>SF Museum of Modern Art</option>
@@ -59,7 +60,7 @@
      	 </select>
      	  <div class="form-group">
 
-   			 <label for="exhibition-statement" >Exhibition Statement</label>
+   			 <div class = "statement"><label for="exhibition-statement"><h3>Exhibition Statement</h3></label></div>
    			 <input type="text" class="form-control" id="exhibition-statement" name="statement" placeholder="Describe Exhibition Statement">
  		 </div>
       <button type="submit" class="btn btn-outline-dark" id = "create-btn">Create Exhibition</button>
