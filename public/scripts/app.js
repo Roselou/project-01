@@ -1,12 +1,9 @@
 
-
-
 $(document).ready(function(){
 console.log('js is working')
 
 
 
-// var allExh = [];
 
 $.ajax ({
 	method: 'GET',
@@ -24,12 +21,13 @@ $.ajax({
 	}
 })
 
-$('#mainForm').on('submit', 'editExh',function(event){
+$('#mainForm').on('submit', function(event){
 
 	event.preventDefault();
 	var newExh = $(this).serialize();
 	console.log(newExh);
 	$(this).trigger('reset');
+	
 	$.ajax({
 		method: 'POST',
 		url: '/api/exhibitions', 
@@ -38,37 +36,36 @@ $('#mainForm').on('submit', 'editExh',function(event){
 			console.log('posting', createdExhibition);
 				renderExhibition(createdExhibition)
 				console.log(renderExhibition);
+				location.reload();
 		},
 		error: handlePostError
 	});
 });
 
 
+
 $('.sample-exhibitions').on('click', '#updateBtn', function(event){	
 		event.preventDefault();
-
-	//debugger
-	// var editForm = $(this).siblings();
   	var exhId = $(this).data('id');
   	console.log('editForm to edit', exhId);
 
-  	//debugger
+
 	$(this).parent().append(`
 	<form data-id="${exhId}" id="edit-form">
    	 <div class="form-group">
    	 	 <div class="form-group">
    			 <label for="exhibition-title">Exhibition Title</label>
-   			 <input type="text" value="exhId.title" class="form-control"  data-id="${exhId.title}" id = "titleId" name="title" placeholder="ex: Art in the Age of the Internet">
+   			 <input type="text" class="form-control"  data-id="${exhId.title}" id = "titleId" name="title" placeholder="ex: Art in the Age of the Internet">
  		 </div>
      	  <div class="form-group">
    			 <label for="exhibition-statement" >Exhibition Statement</label>
-   			 <input type="text" value="exhId.statement" class="form-control" data-id= "${exhId.statement}" id = "statementId" name="statement" placeholder="Describe Exhibition Statement">
+   			 <input type="text" class="form-control" data-id= "${exhId.statement}" id = "statementId" name="statement" placeholder="Describe Exhibition Statement">
  		 </div>
       <button type="submit" class="btn btn-outline-dark" id = "update-btn" data-id= "${exhId}" >Update Exhibition</button>
    	 </div>	
   	</form>	
 	`)
-	//console.log('updating', updatedExhibition);
+	
 });
 
 $('.sample-exhibitions').on('submit', '#edit-form', function(event){

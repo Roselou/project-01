@@ -18,13 +18,14 @@ function create(req, res){
 		db.Artist.findOne({name: req.body.artist2}, function(err, secondArtist){
 			db.Artist.findOne({name: req.body.artist3}, function(err, thirdArtist){
 				console.log(firstArtist, secondArtist, thirdArtist);
-
+				
 				var newExh = {
 					title: req.body.title,
 					artists: [firstArtist, secondArtist, thirdArtist],
 					location: {location: req.body.location},
 					statement: req.body.statement
 				}
+				
 				db.Exhibition.create(newExh, function(err, createdExhibition){
 					if (err){
 						console.log('ERRERERER', err);
@@ -69,9 +70,6 @@ function update(req, res){
 			});
 	});
 
-
-
-   //UPDATE Coser
  };
 
 
